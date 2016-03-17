@@ -32,7 +32,8 @@ generate_custom_error_types!(StoreError, StoreErrorKind, CustomErrorData,
     StorePathLacksVersion   => "The supplied store path has no version part",
     GlobError               => "glob() error",
     EncodingError           => "Encoding error",
-    StorePathError          => "Store Path error"
+    StorePathError          => "Store Path error",
+    EntryRenameError        => "Entry rename error"
 );
 
 generate_custom_error_types!(ParserError, ParserErrorKind, CustomErrorData,
