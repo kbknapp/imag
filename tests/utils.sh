@@ -46,6 +46,38 @@ cat_entry() {
     cat ${STORE}/$1
 }
 
+mk_default_entry() {
+    cat <<EOS >> ${STORE}/$1
+---
+[imag]
+links = []
+version = "0.1.0"
+---
+EOS
+}
+
+print_default_entry_header_open() {
+    cat <<EOS
+---
+[imag]
+links = []
+version = "0.1.0"
+EOS
+}
+
+print_empty_entry_header_open() {
+    cat <<EOS
+---
+[imag]
+EOS
+}
+
+print_default_entry_header_close() {
+    cat <<EOS
+---
+EOS
+}
+
 reset_store() {
     rm -r "${STORE}"
 }
