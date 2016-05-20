@@ -5,7 +5,7 @@ imag-tag() {
 }
 
 mk_store_entry_with_tags() {
-    local name=$1; shift;
+    local name="$1~0.1.0"; shift;
     local tags=$*;
     local file="${STORE}/$name"
 
