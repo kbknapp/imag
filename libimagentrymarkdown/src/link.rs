@@ -60,3 +60,26 @@ pub fn extract_links(buf: &str) -> Vec<Link> {
     le.links()
 }
 
+#[cfg(test)]
+mod test {
+    use super::{Link, extract_links};
+
+    #[test]
+    fn test_one_link() {
+        let testtext = r#"
+            # Header
+
+            Some [example text](http://example.com).
+        "#;
+
+        let exp = Link {
+            title: String::from("example text"),
+            link:  String::from("http://example.com"),
+        };
+
+        let mut links = extract_links(testtext);
+        assert_eq!(1, links.len());
+        assert_eq!(exp, links.pop().unwrap())
+    }
+
+}
