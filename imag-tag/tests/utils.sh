@@ -17,5 +17,5 @@ mk_store_entry_with_tags() {
 }
 
 entry_has_tag() {
-    cat $1 | grep "tags = \[" | grep $2
+    cat "${STORE}/$1" | grep "tags = \[" | grep $2
 }
