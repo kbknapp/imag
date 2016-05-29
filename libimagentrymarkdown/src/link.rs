@@ -97,9 +97,10 @@ Some more [example text](http://example.com).
 
     #[test]
     fn test_two_links() {
-        let testtext = format!("{}\n{}",
-                               "Some [example text](http://example.com).",
-                               "Some more [foo](http://example.com/foo).");
+        let testtext = r#"
+Some [example text](http://example.com).
+Some more [foo](http://example.com/foo).
+        "#;
 
         let exp1 = Link {
             title: String::from("example text"),
