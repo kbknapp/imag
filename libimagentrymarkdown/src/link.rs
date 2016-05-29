@@ -79,9 +79,10 @@ mod test {
 
     #[test]
     fn test_two_similar_links() {
-        let testtext = format!("{}\n{}",
-                               "Some [example text](http://example.com).",
-                               "Some more [example text](http://example.com).");
+        let testtext = r#"
+Some [example text](http://example.com).
+Some more [example text](http://example.com).
+        "#;
 
         let exp = Link {
             title: String::from("example text"),
