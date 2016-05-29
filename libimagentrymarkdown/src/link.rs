@@ -45,7 +45,6 @@ impl Render for LinkExtractor {
             },
 
             (a, b) => {
-                println!("Cannot extract link from ({:?}, {:?})", a, b);
                 false
             },
         }
