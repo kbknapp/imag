@@ -112,8 +112,8 @@ mod test {
 
         let mut links = extract_links(&testtext[..]);
         assert_eq!(2, links.len());
-        assert_eq!(exp1, links.pop().unwrap());
         assert_eq!(exp2, links.pop().unwrap());
+        assert_eq!(exp1, links.pop().unwrap());
     }
 
 }
