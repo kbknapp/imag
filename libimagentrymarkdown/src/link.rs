@@ -35,7 +35,6 @@ impl Render for LinkExtractor {
             _: Option<&Buffer>)
         -> bool
     {
-        println!("LINK!");
         let link  = link.and_then(|l| l.to_str().ok()).map(String::from);
         let content = content.and_then(|l| l.to_str().ok()).map(String::from);
 
