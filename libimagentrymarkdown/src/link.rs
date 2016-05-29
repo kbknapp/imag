@@ -30,22 +30,23 @@ impl Render for LinkExtractor {
 
     fn link(&mut self,
             _: &mut Buffer,
-            _: Option<&Buffer>,
+            content: Option<&Buffer>,
             link: Option<&Buffer>,
-            title: Option<&Buffer>)
+            _: Option<&Buffer>)
         -> bool
     {
+        println!("LINK!");
         let link  = link.and_then(|l| l.to_str().ok()).map(String::from);
-        let title = title.and_then(|l| l.to_str().ok()).map(String::from);
+        let content = content.and_then(|l| l.to_str().ok()).map(String::from);
 
-        match (link, title) {
-            (Some(link), Some(title)) => {
-                self.links.push(Link { link: link, title: title });
+        match (link, content) {
+            (Some(link), Some(content)) => {
+                self.links.push(Link { link: link, title: content });
                 false
             },
 
             (a, b) => {
-                debug!("Cannot extract link from ({:?}, {:?})", a, b);
+                println!("Cannot extract link from ({:?}, {:?})", a, b);
                 false
             },
         }
@@ -66,11 +67,7 @@ mod test {
 
     #[test]
     fn test_one_link() {
-        let testtext = r#"
-            # Header
-
-            Some [example text](http://example.com).
-        "#;
+        let testtext = "Some [example text](http://example.com).";
 
         let exp = Link {
             title: String::from("example text"),
