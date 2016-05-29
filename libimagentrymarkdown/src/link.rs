@@ -41,7 +41,7 @@ impl Render for LinkExtractor {
         match (link, title) {
             (Some(link), Some(title)) => {
                 self.links.push(Link { link: link, title: title });
-                true
+                false
             },
 
             (a, b) => {
